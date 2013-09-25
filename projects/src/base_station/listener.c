@@ -1,14 +1,14 @@
 #include "listener.h"
 #include "communication.h"
 
-static void listener_eventReceive(PPEvent_t event, PPSwitchState_t state);
+static void listener_switchEventReceive(PPSwitchState_t state);
 
 void listener_init()
 {
-  communication_register(listener_eventReceive);
+  communication_register(PPEvent_Switch, listener_switchEventReceive);
 }
 
-static void listener_eventReceive(PPEvent_t event, PPSwitchState_t state)
+static void listener_switchEventReceive(PPSwitchState_t state)
 {
   switch (state) {
   case PPSwitch_On:

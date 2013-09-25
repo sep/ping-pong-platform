@@ -15,6 +15,6 @@ typedef enum {
   PPSwitch_Off
 } PPSwitchState_t;
 
-typedef void (*PPListenerCallback_cb)(PPEvent_t, PPSwitchState_t);
+typedef void (*PPListenerCallback_cb)(PPSwitchState_t);
 
 #endif // __TYPES_H__

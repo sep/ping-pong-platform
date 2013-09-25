@@ -3,6 +3,6 @@
 
 #include "types.h"
 
-void communication_register(PPListenerCallback_cb callback);
+void communication_register(PPEvent_t eventType, PPListenerCallback_cb callback);
 
 #endif // __COMMUNICATION_H__

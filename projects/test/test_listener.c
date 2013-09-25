@@ -6,7 +6,7 @@
 #include "mock_communication.h"
 #include "mock_webclient.h"
 
-static void communication_register_stub(PPListenerCallback_cb callback, int numCalls);
+static void communication_register_stub(PPEvent_t eventType, PPListenerCallback_cb callback, int numCalls);
 static PPBOOL communication_register_hasBeenCalled;
 static PPListenerCallback_cb communication_register_registeredCallback;
 
@@ -36,7 +36,7 @@ void test_listener_should_execute_webservice_call_on_callback_for_switch_on(void
 
   listener_init();
 
-  communication_register_registeredCallback(PPEvent_Switch, PPSwitch_On);
+  communication_register_registeredCallback(PPSwitch_On);
 }
 
 void test_listener_should_execute_webservice_call_on_callback_for_switch_off(void)
@@ -46,10 +46,10 @@ void test_listener_should_execute_webservice_call_on_callback_for_switch_off(voi
 
   listener_init();
 
-  communication_register_registeredCallback(PPEvent_Switch, PPSwitch_Off);
+  communication_register_registeredCallback(PPSwitch_Off);
 }
 
-static void communication_register_stub(PPListenerCallback_cb callback, int numCalls)
+static void communication_register_stub(PPEvent_t eventType, PPListenerCallback_cb callback, int numCalls)
 {
   communication_register_registeredCallback = callback;
   communication_register_hasBeenCalled = PPTrue;
