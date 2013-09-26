@@ -7,12 +7,14 @@ typedef enum {
 } PPBOOL;
 
 typedef enum {
-  PPEvent_Switch
+  PPEvent_Switch,
+  PPEvent_Status
 } PPEvent_t;
 
 typedef enum {
   PPSwitch_On,
-  PPSwitch_Off
+  PPSwitch_Off,
+  PPStatus_LowBattery,
 } PPSwitchState_t;
 
 typedef void (*PPListenerCallback_cb)(PPSwitchState_t);
