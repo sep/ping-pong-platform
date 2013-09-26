@@ -1,5 +1,5 @@
-#ifndef gpio_switch_H
-#define gpio_switch_H
+#ifndef __GPIO_SWITCH_H__
+#define __GPIO_SWITCH_H__
 
 
-#endif // gpio_switch_H
+#endif // __GPIO_SWITCH_H__
