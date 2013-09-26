@@ -8,10 +8,12 @@
 
 static void communication_register_stub(PPEvent_t eventType, PPListenerCallback_cb callback, int numCalls);
 static PPBOOL communication_register_hasBeenCalled;
+static PPEvent_t communication_register_eventType;
 static PPListenerCallback_cb communication_register_registeredCallback;
 
 void setUp(void)
 {
+  communication_register_eventType = -1;
   communication_register_hasBeenCalled = PPFalse;
 }
 
@@ -27,6 +29,7 @@ void test_listener_should_register_callback_for_switch_event(void)
   listener_init();
 
   TEST_ASSERT_EQUAL(PPTrue, communication_register_hasBeenCalled);
+  TEST_ASSERT_EQUAL(PPEvent_Switch, communication_register_eventType);
 }
 
 void test_listener_should_execute_webservice_call_on_callback_for_switch_on(void)
@@ -51,6 +54,7 @@ void test_listener_should_execute_webservice_call_on_callback_for_switch_off(voi
 
 static void communication_register_stub(PPEvent_t eventType, PPListenerCallback_cb callback, int numCalls)
 {
+  communication_register_eventType = eventType;
   communication_register_registeredCallback = callback;
   communication_register_hasBeenCalled = PPTrue;
 }
