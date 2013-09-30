@@ -1,18 +1,33 @@
 #include "unity.h"
+#include "types.h"
+#include "switch_types.h"
 #include "gpio_switch.h"
+
+
+PPBOOL didCallDisableWatchdogCallback;
 
 void setUp(void)
 {
+	didCallDisableWatchdogCallback = PPFalse;
 }
 
 void tearDown(void)
 {
 }
 
+void disableWatchdogCallback(void)
+{
+	didCallDisableWatchdogCallback = PPTrue;
+}
+
 void test_gpio_switch_initialize_should_stop_wdt(void)
 {
-    TEST_IGNORE_MESSAGE("Implement me!");
-    // Test WDT is stopped
+	switch_functions_s params;
+	params.disableWatchdogFunction = disableWatchdogCallback;
+
+	switch_initialize(&params);
+
+	TEST_ASSERT_EQUAL(PPTrue, didCallDisableWatchdogCallback);
 }
 
 void test_gpio_switch_initialize_should_register_interrupt(void)
