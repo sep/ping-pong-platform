@@ -13,10 +13,14 @@ typedef enum {
 
 typedef enum {
   PPSwitch_On,
-  PPSwitch_Off,
-  PPStatus_LowBattery,
+  PPSwitch_Off
 } PPSwitchState_t;
 
-typedef void (*PPListenerCallback_cb)(PPSwitchState_t);
+typedef enum {
+  PPSwitchStatus_LowBattery
+} PPSwitchStatus_t;
+
+typedef void (*PPSwitchListenerCallback_cb)(PPSwitchState_t);
+typedef void (*PPStatusListenerCallback_cb)(PPSwitchStatus_t);
 
 #endif // __TYPES_H__
