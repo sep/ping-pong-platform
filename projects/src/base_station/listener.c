@@ -24,5 +24,12 @@ static void listener_switchEventReceive(PPSwitchState_t state)
 
 static void listener_statusEventReceive(PPSwitchStatus_t status)
 {
-  webclient_post("url2", "LOW BATTERY");
+  switch (status) {
+  case PPSwitchStatus_LowBattery:
+    webclient_post("url2", "LOW BATTERY");
+    break;
+  case PPSwitchStatus_Alive:
+    webclient_post("url2", "ALIVE");
+    break;
+  }
 }

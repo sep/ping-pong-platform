@@ -17,7 +17,8 @@ typedef enum {
 } PPSwitchState_t;
 
 typedef enum {
-  PPSwitchStatus_LowBattery
+  PPSwitchStatus_LowBattery,
+  PPSwitchStatus_Alive
 } PPSwitchStatus_t;
 
 typedef void (*PPSwitchListenerCallback_cb)(PPSwitchState_t);

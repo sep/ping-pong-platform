@@ -78,7 +78,7 @@ void test_listener_should_execute_webservice_call_on_callback_for_switch_off(voi
   communication_register_switch_registeredCallback(PPSwitch_Off);
 }
 
-void test_listener_should_execute_webservice_call_on_callback_for_status(void)
+void test_listener_should_execute_webservice_call_on_callback_for_low_battery_status(void)
 {
   communication_register_switch_StubWithCallback(communication_register_switch_stub);
   communication_register_status_StubWithCallback(communication_register_status_stub);
@@ -88,6 +88,18 @@ void test_listener_should_execute_webservice_call_on_callback_for_status(void)
   listener_init();
 
   communication_register_status_registeredCallback(PPSwitchStatus_LowBattery);
+}
+
+void test_listener_should_execute_webservice_call_on_callback_for_alive_status(void)
+{
+  communication_register_switch_StubWithCallback(communication_register_switch_stub);
+  communication_register_status_StubWithCallback(communication_register_status_stub);
+
+  webclient_post_Expect("url2", "ALIVE");
+
+  listener_init();
+
+  communication_register_status_registeredCallback(PPSwitchStatus_Alive);
 }
 
 static void communication_register_switch_stub(PPSwitchListenerCallback_cb callback, int numCalls)
