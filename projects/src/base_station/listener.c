@@ -30,5 +30,6 @@ static void listener_switchEventReceive(PPSwitchState_t state)
 
 static void listener_statusEventReceive(PPSwitchStatus_t status)
 {
+  // TODO: use the criticality and turn it into JSON, as defined in card #30 on trello
   webclient_post("url2", statusMessageLookup[status]);
 }
