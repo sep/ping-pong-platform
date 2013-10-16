@@ -6,8 +6,6 @@
 #include "mock_communication.h"
 #include "mock_webclient.h"
 
-#define REGISTRATION_COUNT 2
-
 #ifndef NULL
 #define NULL 0
 #endif
