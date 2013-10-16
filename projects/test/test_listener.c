@@ -18,6 +18,9 @@ static PPBOOL communication_register_status_hasBeenCalled;
 static PPSwitchListenerCallback_cb communication_register_switch_registeredCallback;
 static PPStatusListenerCallback_cb communication_register_status_registeredCallback;
 
+char *expected_state_url = "http://app.sep.com/pong_status/switch";
+char *expected_status_url = "http://app.sep.com/pong_status/status";
+
 void setUp(void)
 {
   communication_register_switch_registeredCallback = NULL;
@@ -57,7 +60,7 @@ void test_listener_should_execute_webservice_call_on_callback_for_switch_on(void
   communication_register_switch_StubWithCallback(communication_register_switch_stub);
   communication_register_status_StubWithCallback(communication_register_status_stub);
 
-  webclient_put_Expect("url", "ON");
+  webclient_put_Expect(expected_state_url, "ON");
 
   listener_init();
 
@@ -69,7 +72,7 @@ void test_listener_should_execute_webservice_call_on_callback_for_switch_off(voi
   communication_register_switch_StubWithCallback(communication_register_switch_stub);
   communication_register_status_StubWithCallback(communication_register_status_stub);
 
-  webclient_put_Expect("url", "OFF");
+  webclient_put_Expect(expected_state_url, "OFF");
 
   listener_init();
 
@@ -81,7 +84,7 @@ void test_listener_should_execute_webservice_call_on_callback_for_low_battery_st
   communication_register_switch_StubWithCallback(communication_register_switch_stub);
   communication_register_status_StubWithCallback(communication_register_status_stub);
 
-  webclient_post_Expect("url2", "LOW BATTERY");
+  webclient_post_Expect(expected_status_url, "LOW BATTERY");
 
   listener_init();
 
@@ -93,7 +96,7 @@ void test_listener_should_execute_webservice_call_on_callback_for_alive_status(v
   communication_register_switch_StubWithCallback(communication_register_switch_stub);
   communication_register_status_StubWithCallback(communication_register_status_stub);
 
-  webclient_post_Expect("url2", "ALIVE");
+  webclient_post_Expect(expected_status_url, "ALIVE");
 
   listener_init();
 
