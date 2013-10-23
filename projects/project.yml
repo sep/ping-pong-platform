@@ -24,13 +24,17 @@
 
 :paths:
   :test:
-    - +:test/**
-    - -:test/support
+    - switch/test/**
+    - communication/test/**
+    - base_station/test/**
   :source:
-    - include/**
-    - src/**
+    - switch/include/**
+    - switch/src/**
+    - communication/include/**
+    - communication/src/**
+    - base_station/include/**
+    - base_station/src/**
   :support:
-    - test/support
 
 :defines:
   # in order to add common defines:
