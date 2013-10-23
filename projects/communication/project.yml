@@ -24,16 +24,11 @@
 
 :paths:
   :test:
-    - switch/test/**
-    - communication/test/**
-    - base_station/test/**
+    - +:test/**
   :source:
-    - switch/include/**
-    - switch/src/**
-    - communication/include/**
-    - communication/src/**
-    - base_station/include/**
-    - base_station/src/**
+    - include/**
+    - src/**
+    - ../communication/include/**
   :support:
 
 :defines:
@@ -69,7 +64,7 @@
 
 :plugins:
   :load_paths:
-    - vendor/ceedling/plugins
+    - ../vendor/ceedling/plugins
   :enabled:
     - stdout_pretty_tests_report
     - module_generator
