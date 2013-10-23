@@ -1,2 +1,4 @@
 # for emacs
 *~
+# ignore all build directories
+build/
