@@ -1,0 +1,4 @@
+To install MSP430 tools run
+"sudo apt-get install binutils-msp430 gcc-msp430 msp430-libc mspdebug"
+
+Then use rake with ceedling to build and run tests (requires ruby)
