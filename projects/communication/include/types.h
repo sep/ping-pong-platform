@@ -1,6 +1,8 @@
 #ifndef __TYPES_H__
 #define __TYPES_H__
 
+#define PPNULL 0x0000
+
 typedef enum {
   PPTrue,
   PPFalse
