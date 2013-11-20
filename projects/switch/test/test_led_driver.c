@@ -12,7 +12,7 @@ void setUp(void)
 
 void tearDown(void)
 {
-	is_initialized = PPFalse;
+	address = PPNULL;
 }
 
 void test_led_driver_led_initialize_should_setup_direction(void)

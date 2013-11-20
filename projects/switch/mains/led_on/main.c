@@ -10,7 +10,7 @@ int main(void)
 
 	led_initialize((led_addresses_s*)P1IN_);
 	
-	set_led_color(LED_GREEN);
+	set_led_color(LED_RED);
 	while(1)
 	{
 		
